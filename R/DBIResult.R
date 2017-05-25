@@ -229,8 +229,8 @@ sqlException.Message <-
     CDbtypes <- clrGet(sqlDataHelper,'CDbtypes')
     char.cols <- grep('char',CDbtypes)
     
-    out[char.cols] <- lapply(out[char.cols],
-                             function(x) ifelse(nchar(x)==0,NA_character_,x))
+    #out[char.cols] <- lapply(out[char.cols],
+    #                         function(x) ifelse(nchar(x)==0,NA_character_,x))
     ## process date type 
     rtypes <- tolower(sapply(CDbtypes,db2RType))
     ## POSIXct 

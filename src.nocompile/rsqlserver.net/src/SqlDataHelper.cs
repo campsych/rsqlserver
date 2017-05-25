@@ -116,10 +116,7 @@ namespace rsqlserver.net
             //    return ((DateTime)res).ToString("yyyy-MM-dd HH:mm:ss");
             if (value == DBNull.Value)
             {
-                if (fieldType== typeof(String))
-                    return string.Empty;
-                else
-                    return Single.NaN;
+                return null;
             }
             else
             {
@@ -170,7 +167,7 @@ namespace rsqlserver.net
                     var value = GetItem(_reader, i);
                     _resultSet[_cnames[i]].SetValue(value, cnt);
                 }
-             
+
                 cnt += 1;
                 _nrows += 1;
                 if (cnt >= capacity) return cnt;
